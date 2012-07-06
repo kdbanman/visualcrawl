@@ -1,5 +1,5 @@
 ## Semantic Web Crawling Visualization
-Kirby Banman <kdbanman@ualberta.ca>
+[Kirby Banman](kdbanman@ualberta.ca)
 
 # Important Bits
 
@@ -10,14 +10,14 @@ Kirby Banman <kdbanman@ualberta.ca>
 
 # Overview
 
+###### The initial motivation for this project was to produce [this video](http://www.youtube.com/watch?v=CCBvwWIba3c) and [this other video](http://www.youtube.com/watch?v=w9UKUpyqw_4).
+
 There are many unanswered questions regarding the nature of semantic web crawling, and this is my attempt to sharpen those questions with some pretty visualizations.  Different methods of crawling give rise to very different behaviour, which should be evident in the different images, graphs, and videos.
 
 - Crawl settings are described in the shell scripts.
 - Generated graphs show the dereferenced URIs as nodes and the links between URIs as edges.
 - The real-time generation of the graph is shown at the linked video for each crawl.
 - The crawl settings are adjusted so that the complete activity graph contains less than 1000 nodes.
-
-###### The initial motivation for this project was to produce [this video](http://www.youtube.com/watch?v=CCBvwWIba3c) and [this other video](http://www.youtube.com/watch?v=w9UKUpyqw_4).
 
 # Script Procedure
 
@@ -45,11 +45,13 @@ There are many unanswered questions regarding the nature of semantic web crawlin
 - The uniform set of configurations could be 2 separate configs, one for a small graph and one for a larger graph, for each of breadth and depth
 - Video visualizations are likely impractical for the uniform set, as the crawl time could become impractically large for some seed/link combinations.  For example, a depth-first crawl from Einstein's dbpedia URI, following only rdf:type links, has a Round 2 queue of ~290 URIs, then a Round 3 queue of ~57000 URIs, and the  maxuri parameter [is only checked at the end of every round](http://code.google.com/p/ldspider/source/browse/trunk/src/com/ontologycentral/ldspider/Crawler.java#358)
 
-###### Especially after above scripting, split programmatic and configuration files from presentation files into separate directories.  Include crawler config in plain english in the visualization directories.  Include a terminal log and the crawl output file.
+###### Especially after above scripting, split programmatic and configuration files from presentation files into separate directories.
+- Include crawler config in plain english in the visualization directories.
+- Include a terminal log and the crawl output file.
 
 # License
 
-All scripts, images, and graphs are Copyright 2012 Kirby Banman <kdbanman@ualberta.ca>.
+All scripts, images, and graphs are Copyright 2012 [Kirby Banman](kdbanman@ualberta.ca).
 
 This content is licensed under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
