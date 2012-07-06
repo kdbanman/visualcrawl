@@ -7,8 +7,7 @@ Important Bits
 
 Examples and visualizations of semantic web crawls using
 
-- Graph Visualizer: Gephi 0.8.1 beta 201202141941
-                          using plugin HttpGraph 1.0.6
+- Graph Visualizer: Gephi 0.8.1 beta 201202141941 using plugin HttpGraph 1.0.6
 - Semantic Crawler: LDSpider 1.1e
 
 Overview
@@ -43,6 +42,7 @@ Roadmap
 -------
 
 - A sufficient set of seed URIs, LDSpider settings, and Gephi settings could be found so that scripting the 'Human Procedure' could be done by command line or respective APIs
+- Especially after above scripting, split programmatic and configuration files from presentation files into separate directories.  Include crawler config in plain english in the visualization directories.  Include a terminal log and the crawl output file.
 
 License
 -------
