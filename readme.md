@@ -34,9 +34,9 @@ Each script in the root
 Human Procedure
 ---------------
 
-1. Gephi/HttpGraph are set up to generate a graph according to HTTP traffic routed through <http://localhost:8088>
+1. Gephi/HttpGraph are set up to generate a graph according to HTTP traffic routed through `http://localhost:8088`
 2. Script is run, starting the crawler with traffic routed through the proxy
-3. When the crawl is done, the resulting graph is altered for appearance and saved in <.svg>, <.gml>, and <.gephi> formats
+3. When the crawl is done, the resulting graph is altered for appearance and saved in `.svg`, `.gml`, and `.gephi` formats
 
 Roadmap
 -------
@@ -46,10 +46,10 @@ Roadmap
 License
 -------
 
-All scripts, images, and graphs are Copyright 2012 Kirby Banman <kdbanman@ualberta.ca>.
+All scripts, images, and graphs are Copyright 2012 Kirby Banman `kdbanman@ualberta.ca`.
 
 This content is licensed under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 This content is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with this content.  If not, see <http://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License along with this content.  If not, see `http://www.gnu.org/licenses/`.
