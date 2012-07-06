@@ -24,10 +24,9 @@ Script Procedure
 
 Each script in the root
 1. Generates directory of the same name for
-    - The seed URI(s)
-    - Associated visualisation images and graph files 
-    - Text file containing link to crawl visualization video (if present)
-    - Crawl results (if any)
+    1. Associated visualisation images and graph files 
+    2. Text file containing link to crawl visualization video (if present)
+    3. Crawl results (if any)
 2. Populates the seed text file with the seed URI(s)
 3. Starts the crawler with the options described in the script header
 
