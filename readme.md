@@ -42,15 +42,14 @@ Human Procedure
 Roadmap
 -------
 
-A sufficient set of seed URIs, LDSpider settings, and Gephi settings could be found so that scripting the 'Human Procedure' could be done by command line or respective APIs
->    For each seed URI
->        For each link type followed
->            Crawl breadth- and depth- first to obtain similarly sized graphs (current strategy is to aim for less than 1000 nodes)
->            Crawl breadth- and depth- first with a uniform set of configurations
->                - 2 separate configs, one for a small graph and one for a larger graph, for each of breadth and depth
->                - Video visualizations are likely impractical, as the crawl time could become impractically large for some seed/link combinations.  For example, a depth-first crawl from Einstein's dbpedia URI, following only rdf:type links, has a Round 2 queue of ~290 URIs, then a Round 3 queue of ~57000 URIs.  maxuri parameter [is only checked at the end of every round](http://code.google.com/p/ldspider/source/browse/trunk/src/com/ontologycentral/ldspider/Crawler.java#358)
+#### A sufficient set of seed URIs, LDSpider settings, and Gephi settings could be found so that scripting the 'Human Procedure' could be done by command line or respective APIs
+- For each seed URI and for each link type followed:
+- Crawl breadth- and depth- first to obtain similarly sized graphs (current strategy is to aim for less than 1000 nodes)
+- Crawl breadth- and depth- first with a uniform set of configurations
+- The uniform set of configurations could be 2 separate configs, one for a small graph and one for a larger graph, for each of breadth and depth
+- Video visualizations are likely impractical for the uniform set, as the crawl time could become impractically large for some seed/link combinations.  For example, a depth-first crawl from Einstein's dbpedia URI, following only rdf:type links, has a Round 2 queue of ~290 URIs, then a Round 3 queue of ~57000 URIs, and the  maxuri parameter [is only checked at the end of every round](http://code.google.com/p/ldspider/source/browse/trunk/src/com/ontologycentral/ldspider/Crawler.java#358)
 
-Especially after above scripting, split programmatic and configuration files from presentation files into separate directories.  Include crawler config in plain english in the visualization directories.  Include a terminal log and the crawl output file.
+#### Especially after above scripting, split programmatic and configuration files from presentation files into separate directories.  Include crawler config in plain english in the visualization directories.  Include a terminal log and the crawl output file.
 
 License
 -------
