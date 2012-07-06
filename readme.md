@@ -6,6 +6,7 @@ Important Bits
 --------------
 
 Examples and visualizations of semantic web crawls using
+
 - Graph Visualizer: Gephi 0.8.1 beta 201202141941
                           using plugin HttpGraph 1.0.6
 - Semantic Crawler: LDSpider 1.1e
@@ -23,6 +24,7 @@ Script Procedure
 ----------------
 
 Each script in the root
+
 1. Generates directory of the same name for
     1. Associated visualisation images and graph files 
     2. Text file containing link to crawl visualization video (if present)
