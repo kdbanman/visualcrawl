@@ -3,7 +3,6 @@
 **WORK IN PROGRESS**
 
 ## Web Crawlers
-Because humans are slow
 
 A crawler is an automated HTTP client that:
 
