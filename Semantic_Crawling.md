@@ -2,10 +2,10 @@
 
 **WORK IN PROGRESS**
 
-## Web Crawlers ##  
-because humans are too slow
+## Web Crawlers
+Because humans are slow
 
-### A crawler is an automated HTTP client that: ###
+A crawler is an automated HTTP client that:
 
 1. Traverses links between documents
 2. Collects some kind of data
