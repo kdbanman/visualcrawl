@@ -1,23 +1,23 @@
 # Semantic Web Crawling #
 
-**WORK IN PROGRESS**
+**WORK IN PROGRESS:** this document is intended for readers already familiar with semantic web principles and technologies who wish to explore the idea of semantic web crawling.  Efficiency and parallelization will not be explored.
 
 ## Web Crawlers
 
 A crawler is an automated HTTP client that:
 
-1. Traverses links between documents
-2. Collects some kind of data
-3. Prioritizes its traversal or data collection
+1. Traverses links between documents on the web
+2. Collects some kind of data as it crawls
+3. (May) prioritize its traversal or data collection
 
 #### 1. Link Traversal ####
 
 - A crawler needs a place to start.  This is done by providing one or more *seed URIs* to be dereferenced by the crawler when it starts.
 - A crawler needs a way to continue.  This is done with a *frontier*, a master list of URIs to be crawled, and a *queue*, an immediate list of URIs to be crawled 
 
-The queue is initially populated with the seed URIs, so it will dereference them and extract their content.  The content is parsed and its outlinked URIs are added to the frontier.  When the queue is exhausted, discovered URIs now in the frontier are used to repopulate the queue and work starts again.
+The queue is initially populated with the seed URIs, so it will dereference them and extract their content.  The content is parsed and its outlinked URIs are added to the frontier.  When the queue is exhausted, discovered URIs now in the frontier are used to repopulate the queue and work starts again.  This recursive relationship, where the frontier URIs are crawled to reveal more frontier URIs, defines a breadth-first traversal of the web if the process is unaltered by prioritization or filtering of URIs.
 
-This recursive relationship, where the frontier URIs are crawled to reveal more frontier URIs, defines a breadth-first traversal of the web.
+The high-level structure of seed, frontier, and queue is implemented in semantic and traditional crawlers.  {examples and references.  slug, ldspider, mercator, google's, historical ones}
 
 #### 2. Data Collection ####
 
@@ -31,6 +31,7 @@ Once this data is collected, it can be processed, displayed, or queried.
 #### 3. Prioritization ####
 
 There are a few reasons a crawler's behaviour can be prioritized or structured:  
+
 1. Politeness
 2. Page importance
 3. Content focus
