@@ -1,43 +1,43 @@
 ### audience knows:
 
-    #### high-level:
+#### high-level:
 
-        HTTP
-	HTML
-        RDFS/OWL
-	Databases/Triplestores
-	SPARQL
+HTTP
+HTML
+RDFS/OWL
+Databases/Triplestores
+SPARQL
 
-    #### low level:
+#### low level:
 
-        RDF
-        Linked Data Principles
+RDF
+Linked Data Principles
 
 
 ### topics/musings:
 
-    #### documents are now fuzzy
+#### documents are now fuzzy
 
-        ##### web 1.0
-	
-	*documents* are defined by human authors
+##### web 1.0
 
-        - data is drawn from arbitrary sources and crafted directly into content by human authors
-	- content is split between documents by human judgement on a per-document basis (as in the chapters and sections of a book)
-        - data is interlinked by links between documents
+*documents* are defined by human authors
 
-	##### web 2.0
+- data is drawn from arbitrary sources and crafted directly into content by human authors
+- content is split between documents by human judgement on a per-document basis (as in the chapters and sections of a book)
+- data is interlinked by links between documents
 
-        *document classes* are defined by human authored templates
+##### web 2.0
 
-	- data is drawn from arbitrary sources into relational databases
-	- content is extracted and rendered from relational databases according to templates (as in XSLT and CSS)
-	- data is interlinked by links between document classes
+*document classes* are defined by human authored templates
 
-	##### web 3.0
+- data is drawn from arbitrary sources into relational databases
+- content is extracted and rendered from relational databases according to templates (as in XSLT and CSS)
+- data is interlinked by links between document classes
 
-        *document representations* of resources are defined by human authored algorithms
+##### web 3.0
 
-	- data is drawn from arbitrary sources into triplestores
-	- content is extracted from triplestores by algorithmically discovering a relevant subgraph (as in Concise Bounded Description or Minimal Self-Contained Graph)
-	- data is interlinked by entity equivalencies and relations
+*document representations* of resources are defined by human authored algorithms
+
+- data is drawn from arbitrary sources into triplestores
+- content is extracted from triplestores by algorithmically discovering a relevant subgraph (as in Concise Bounded Description or Minimal Self-Contained Graph)
+- data is interlinked by entity equivalencies and relations
