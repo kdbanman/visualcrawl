@@ -1,4 +1,4 @@
-### audience knows:
+## audience knows:
 
 #### high-level:
 
@@ -14,9 +14,9 @@
 - Linked Data Principles
 
 
-### topics/musings:
+## topics/musings:
 
-#### documents are now fuzzy
+### documents are now fuzzy
 
 ##### web 1.0
 
