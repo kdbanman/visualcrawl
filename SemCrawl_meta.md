@@ -2,16 +2,16 @@
 
 #### high-level:
 
-HTTP
-HTML
-RDFS/OWL
-Databases/Triplestores
-SPARQL
+- HTTP
+- HTML
+- RDFS/OWL
+- Databases/Triplestores
+- SPARQL
 
 #### low level:
 
-RDF
-Linked Data Principles
+- RDF
+- Linked Data Principles
 
 
 ### topics/musings:
