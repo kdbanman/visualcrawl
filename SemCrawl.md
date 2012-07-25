@@ -1,6 +1,9 @@
 # Semantic Web Crawling #
 
-**WORK IN PROGRESS:** this document is intended for readers already familiar with semantic web principles and technologies who wish to explore the idea of semantic web crawling.  Efficiency and parallelization will not be explored.
+**WORK IN PROGRESS:**
+- This document is intended for readers already familiar with semantic web principles and technologies who wish to explore the idea of semantic web crawling.  No knowledge of web crawlers is assumed.
+- Efficiency and parallelization will not be explored.
+- Citations will be of the form [{name}] until the document is finalized and the bibliography can be alphabetized.
 
 ## Web Crawlers
 
@@ -57,3 +60,11 @@ The size and rate of expansion of the web has rendered it impossible to crawl ev
 
 One may only be interested in a particular type of content, like PDF, jpeg, or rdf+xml.  There are various approaches to giving crawlers tendencies towards specific content types:
 
+#### Biblography ####
+
+[{brin}] S. Brin, L. Page; The Anatomy of a Large-Scale Hypertextual Web Search Engine; Computer Networks 30 (1-7) (1998) 107–117
+[{dodds}] L. Dodds; Slug: A Semantic Web Crawler; http://www.ldodds.com/projects/slug (2006)
+[{eichmann}] D. Eichmann; The RBSE Spider - Balancing Effective Search Against Web Load; University of Houston - Clear Lake (1994)
+[{heydon}] A. Heydon, M. Najork; Mercator: A Scalable, Extensible Web Crawler; Compaq Systems Research Center, (1999)
+[{hogan}] A. Hogan, A. Harth, J. Ubrich, S. Kinsella, A. Polleres, S. Decker; Searching and Browsing Linked Data with SWSE: the Semantic Web Search Engine; Digital Enterprise Research Institute, National University of Ireland, Galway; AIFB, Karlsruhe Institute of Technology, Germany (2011)
+[{mcbryan}] O. McBryan; GENVL and WWWW: Tools for Taming the Web; Proceeding s of the First International World Wide Web Conference (1994)
