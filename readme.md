@@ -5,6 +5,10 @@ Kirby Banman, <kdbanman@ualberta.ca>
 
 ###### Examples and visualizations of semantic web crawls using:
 
+Version 0.2:
+- Semantic Crawler: [LDSpider 1.1e](http://code.google.com/p/ldspider/) revision 304 checked out for extension
+
+Version 0.1:
 - Graph Visualizer: [Gephi 0.8.1 beta 201202141941](http://gephi.org/) using plugin [HttpGraph 1.0.6](https://gephi.org/plugins/http-graph/)
 - Semantic Crawler: [LDSpider 1.1e](http://code.google.com/p/ldspider/)
 
@@ -37,6 +41,15 @@ There are many unanswered questions regarding the nature of semantic web crawlin
 3. When the crawl is done, the resulting graph is altered for appearance and saved in `.svg`, `.gml`, and `.gephi` formats
 
 # Roadmap
+
+Version 0.2:
+
+###### Visualize the RDF graph as it's crawled, rather than the crawler's HTTP traffic:
+- Extend LDSpider to output crawl results as a dynamic graph for visualization - .gexf format seems most applicable
+- Revision 304 of LDSpider checked out for extension
+- [gexf4j](https://github.com/francesco-ficarola/gexf4j) library may be the best way to author the dynamic graph files for output
+
+Version 0.1:
 
 ###### A sufficient set of seed URIs, LDSpider settings, and Gephi settings could be found so that scripting the 'Human Procedure' could be done by command line or respective APIs:
 - For each seed URI and for each link type followed:
