@@ -17,7 +17,10 @@ A crawler is an automated HTTP client that:
 
 The queue is initially populated with the seed URIs, so it will dereference them and extract their content.  The content is parsed and its outlinked URIs are added to the frontier.  When the queue is exhausted, discovered URIs now in the frontier are used to repopulate the queue and work starts again.  This recursive relationship, where the frontier URIs are crawled to reveal more frontier URIs, defines a breadth-first traversal of the web if the process is unaltered by prioritization or filtering of URIs.
 
-The high-level structure of seed, frontier, and queue is implemented in semantic and traditional crawlers.  {examples and references.  slug, ldspider, mercator, google's, historical ones}
+The high-level structures of seed, frontier, and queue are implemented very broadly in web crawlers: 
+semantic crawlers Slug [{dodds}] and LDSpider, [{isele}] which is implemented in the Semantic Web Search Engine [{hogan}]; 
+traditional crawlers including Mercator [{heydon}] and Google's first crawler [{brin}]; 
+and historical crawlers from the advent of automated web traversal like RBSE Spider [{eichmann}] and the World Wide Web Worm [{mcbryan}].
 
 #### 2. Data Collection ####
 
@@ -25,12 +28,13 @@ A crawler's purpose is to collect information about the content it's exploring. 
 - A complete copy of the page content
 - An index of terms or media on the page
 - A map of the inlinks and outlinks of the page
+- A set of provenance or meta data
 
 Once this data is collected, it can be processed, displayed, or queried.
 
 #### 3. Prioritization ####
 
-There are a few reasons a crawler's behaviour can be prioritized or structured:  
+By using crawl timing, or manipulation of the URI queue or frontier, the crawl can be prioritized or structured.  There are a few reasons one might want to do this:  
 
 1. Politeness
 2. Page importance

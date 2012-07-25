@@ -23,7 +23,7 @@ There are many unanswered questions regarding the nature of semantic web crawlin
 - The real-time generation of the graph is shown at the linked video for each crawl.
 - The crawl settings are adjusted so that the complete activity graph contains less than 1000 nodes.
 
-# Script Procedure
+### Script Procedure
 
 ###### Each script in the root:
 
@@ -34,7 +34,7 @@ There are many unanswered questions regarding the nature of semantic web crawlin
 2. Populates the seed text file with the seed URI(s)
 3. Starts the crawler with the options described in the script header
 
-# Human Procedure
+### Human Procedure
 
 1. Gephi/HttpGraph are set up to generate a graph according to HTTP traffic routed through `http://localhost:8088`
 2. Script is run, starting the crawler with traffic routed through the proxy
