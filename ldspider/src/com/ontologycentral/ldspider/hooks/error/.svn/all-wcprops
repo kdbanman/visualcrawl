@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/266/trunk/src/com/ontologycentral/ldspider/hooks/error
+END
+ErrorHandlerRounds.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/255/trunk/src/com/ontologycentral/ldspider/hooks/error/ErrorHandlerRounds.java
+END
+ErrorHandlerDummy.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/255/trunk/src/com/ontologycentral/ldspider/hooks/error/ErrorHandlerDummy.java
+END
+ErrorHandlerLogger.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/266/trunk/src/com/ontologycentral/ldspider/hooks/error/ErrorHandlerLogger.java
+END
+ErrorHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/255/trunk/src/com/ontologycentral/ldspider/hooks/error/ErrorHandler.java
+END
+ObjectThrowable.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/103/trunk/src/com/ontologycentral/ldspider/hooks/error/ObjectThrowable.java
+END

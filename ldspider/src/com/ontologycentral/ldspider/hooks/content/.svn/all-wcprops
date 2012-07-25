@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/289/trunk/src/com/ontologycentral/ldspider/hooks/content
+END
+ContentHandlerRdfXml.java
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/!svn/ver/281/trunk/src/com/ontologycentral/ldspider/hooks/content/ContentHandlerRdfXml.java
+END
+ContentHandlerAny23.java
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/179/trunk/src/com/ontologycentral/ldspider/hooks/content/ContentHandlerAny23.java
+END
+ContentHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/179/trunk/src/com/ontologycentral/ldspider/hooks/content/ContentHandler.java
+END
+ContentHandlers.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/179/trunk/src/com/ontologycentral/ldspider/hooks/content/ContentHandlers.java
+END
+ZipContentHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/255/trunk/src/com/ontologycentral/ldspider/hooks/content/ZipContentHandler.java
+END
+ContentHandlerNx.java
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/289/trunk/src/com/ontologycentral/ldspider/hooks/content/ContentHandlerNx.java
+END

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/230/trunk/src/com/ontologycentral/ldspider/hooks/fetch
+END
+FetchFilterDeny.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/92/trunk/src/com/ontologycentral/ldspider/hooks/fetch/FetchFilterDeny.java
+END
+FetchFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/2/trunk/src/com/ontologycentral/ldspider/hooks/fetch/FetchFilter.java
+END
+FetchFilterSuffix.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/230/trunk/src/com/ontologycentral/ldspider/hooks/fetch/FetchFilterSuffix.java
+END
+FetchFilterRdfXml.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/213/trunk/src/com/ontologycentral/ldspider/hooks/fetch/FetchFilterRdfXml.java
+END
+FetchFilterAllow.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/92/trunk/src/com/ontologycentral/ldspider/hooks/fetch/FetchFilterAllow.java
+END

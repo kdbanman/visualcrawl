@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/295/trunk/src/com/ontologycentral/ldspider/any23
+END
+IgnoreOrDumpAny23addedSindiceStuff.java
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/289/trunk/src/com/ontologycentral/ldspider/any23/IgnoreOrDumpAny23addedSindiceStuff.java
+END
+IgnoreAccidentalRDFaReally.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/295/trunk/src/com/ontologycentral/ldspider/any23/IgnoreAccidentalRDFaReally.java
+END
+ContentHandlerHybridRdfXmlAny23.java
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/289/trunk/src/com/ontologycentral/ldspider/any23/ContentHandlerHybridRdfXmlAny23.java
+END
+ContentHandlerAny23.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/289/trunk/src/com/ontologycentral/ldspider/any23/ContentHandlerAny23.java
+END
+FetchFilterAny23.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/289/trunk/src/com/ontologycentral/ldspider/any23/FetchFilterAny23.java
+END
