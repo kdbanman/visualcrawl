@@ -44,7 +44,12 @@ There are many unanswered questions regarding the nature of semantic web crawlin
 
 Version 0.2:
 
-###### Visualize the RDF graph as it's crawled, rather than the crawler's HTTP traffic:
+###### Static: Visualize the RDF graph at the end of the crawl for different focused algorithms:
+- get LDSpider to output RDF+XML using the API rather than the CLI
+- use Gephi's Semantic Web Import to visualize the crawl results (may be able to do semi-dynamic vis by SPARQL queries and round-based named graphs)
+- implement a few topically focused algorithms in LDSpider to visualize results of a control topic
+
+###### Dynamic: Visualize the RDF graph as it's crawled, rather than the crawler's HTTP traffic:
 - Extend LDSpider to output crawl results as a dynamic graph for visualization - .gexf format seems most applicable
 - Revision 304 of LDSpider checked out for extension
 - [gexf4j](https://github.com/francesco-ficarola/gexf4j) library may be the best way to author the dynamic graph files for output
