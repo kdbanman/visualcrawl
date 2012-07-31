@@ -5,10 +5,10 @@ Kirby Banman, <kdbanman@ualberta.ca>
 
 Examples and visualizations of semantic web crawls using:
 
-Version 0.2:
+### Version 0.2:
 - Semantic Crawler: [LDSpider 1.1e](http://code.google.com/p/ldspider/) revision 304 checked out for extension to .gexf output
 
-Version 0.1:
+### Version 0.1:
 - Graph Visualizer: [Gephi 0.8.1 beta 201202141941](http://gephi.org/) using plugin [HttpGraph 1.0.6](https://gephi.org/plugins/http-graph/)
 - Semantic Crawler: [LDSpider 1.1e](http://code.google.com/p/ldspider/)
 
@@ -18,9 +18,9 @@ Version 0.1:
 
 There are many unanswered questions regarding the nature of semantic web crawling, and this is my attempt to sharpen those questions with some visual depictions of different crawling strategies.  Different methods of crawling give rise to very different behaviour, which should be evident in the different image, graph, and video visualizations.
 
-Version 0.2:
+### Version 0.2:
 
-This version is an attempt to address the inadequacies of version 0.1 (see 0.1 analysis below).  More advanced crawl strategies will be implemented in an attempt to focus the crawl behaviour and results on a particular topic.  Insights and implementations of these strategies are explored in semantic [{dong}] and traditional [{menczer}][{diligenti}] web contexts.
+This  is an attempt to address the inadequacies of gc 0.1 (see 0.1 analysis below).  More advanced crawl strategies will be implemented in an attempt to focus the crawl behaviour and results on a particular topic.  Insights and implementations of these strategies are explored in semantic [{dong}] and traditional [{menczer}][{diligenti}] web contexts.
 
 - Each crawl strategy is given a subdirectory of ver0.2/
 - Each subdirectory contains:
@@ -30,9 +30,9 @@ This version is an attempt to address the inadequacies of version 0.1 (see 0.1 a
     4. A graph visualization of the crawl results in `.svg`, `.gml`, and `.gephi` formats
     5. (Tentative) A .gexf dynamic graph file for visualization of crawler behaviour
 
-Version 0.1:
+### Version 0.1:
 
-This version is a preliminary experiment to see the difference between the classic crawl strategies of depth-first and breadth-first, initially explored in 1994 [{pinkerton}][{de bra}], in the context of the semantic web.  It also represents an exploration of visaulization techniques and tools.
+This  is a preliminary experiment to see the difference between the classic crawl strategies of depth-first and breadth-first, initially explored in 1994 [{pinkerton}][{de bra}], in the context of the semantic web.  It also represents an exploration of visaulization techniques and tools.
 
 - Crawl settings are described in the shell scripts.
 - Generated graphs show the dereferenced URIs as nodes and the links between URIs as edges.
@@ -62,7 +62,7 @@ Each script in ver0.1/:
 
 # Roadmap
 
-Version 0.2:
+### Version 0.2:
 
 ##### Static: Visualize the RDF graph at the end of the crawl for different focused algorithms:
 - get LDSpider to output RDF+XML using the API rather than the CLI
@@ -74,7 +74,7 @@ Version 0.2:
 - Revision 304 of LDSpider checked out for extension
 - [gexf4j](https://github.com/francesco-ficarola/gexf4j) library may be the best way to author the dynamic graph files for output
 
-Version 0.1:
+### Version 0.1:
 
 ##### A sufficient set of seed URIs, LDSpider settings, and Gephi settings could be found so that scripting the 'Human Procedure' could be done by command line or respective APIs:
 - For each seed URI and for each link type followed:
@@ -91,7 +91,7 @@ Version 0.1:
 
 All scripts, images, and graphs are Copyright 2012 (C) Kirby Banman, <kdbanman@ualberta.ca>.
 
-This content is licensed under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+This content is licensed under the terms of the GNU General Public License as published by the Free Software Foundation, either  3 of the License, or (at your option) any later gc.
 
 This content is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
