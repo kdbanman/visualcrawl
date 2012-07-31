@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/296/trunk/src/com/ontologycentral/ldspider/frontier
+END
+DiskFrontier.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/266/trunk/src/com/ontologycentral/ldspider/frontier/DiskFrontier.java
+END
+Frontier.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/289/trunk/src/com/ontologycentral/ldspider/frontier/Frontier.java
+END
+SortingDiskFrontier.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/296/trunk/src/com/ontologycentral/ldspider/frontier/SortingDiskFrontier.java
+END
+DescendingCountComparatorAlph.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/293/trunk/src/com/ontologycentral/ldspider/frontier/DescendingCountComparatorAlph.java
+END
+BasicFrontier.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/289/trunk/src/com/ontologycentral/ldspider/frontier/BasicFrontier.java
+END
+RankedFrontier.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/293/trunk/src/com/ontologycentral/ldspider/frontier/RankedFrontier.java
+END
