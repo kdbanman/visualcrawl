@@ -65,7 +65,7 @@ One may only be interested in a particular type of content, like PDF, jpeg, or r
 
 ###### 3.2.3 Topical focus ######
 
-#TODO:  Keep going.  Ugh.
+#TODO:  Keep going here.
 
 A method of addressing the searchability of an ever-increasing web is "by distributing the crawling process across users, queries, or even client computers," [{menczer}] so a crawler that efficiently aggregates content that is related to a particular query topic is an asset.  There are two main methods of topical focus: fixed relevancy and adaptive relevancy. [{diligenti}] 
 With fixed relevancy, the criteria for measuring the relevancy of a page to the query topic is defined before the crawl commences and does not change for the duration of the crawl. 
