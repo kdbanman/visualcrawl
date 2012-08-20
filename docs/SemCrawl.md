@@ -67,9 +67,12 @@ One may only be interested in a particular type of content, like PDF, jpeg, or r
 
 #TODO:  Keep going here.
 
-A method of addressing the searchability of an ever-increasing web is "by distributing the crawling process across users, queries, or even client computers," [{menczer}] so a crawler that efficiently aggregates content that is related to a particular query topic is an asset.  There are two main methods of topical focus: fixed relevancy and adaptive relevancy. [{diligenti}] 
+A crawler's behaviour may also be constrained by attempting to crawl webpages that are only relevant to a specific topic.  The topic of the crawl can be described by things like seed URIs or string queries.
+A method of addressing the searchability of an ever-increasing web is "by distributing the crawling process across users, queries, or even client computers," [{menczer}] so a crawler that efficiently aggregates content that is related to a particular query topic is an asset.  The algorithms for a topical focus can fit into one of two categories: fixed relevancy and adaptive relevancy. [{diligenti}] 
 With fixed relevancy, the criteria for measuring the relevancy of a page to the query topic is defined before the crawl commences and does not change for the duration of the crawl. 
 With adaptive relevancy, the results of the crawl affect the criteria for document relevancy.  Machine learning techniques are used heavily in these implementations.
+
+Regardless of which ...  **CONTINUE HERE**
 
 #### Appendix A - Documents Are Getting Fuzzier ####
 
