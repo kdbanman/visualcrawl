@@ -16,12 +16,12 @@ A crawler is an automated HTTP client that:
 #### 1. Link Traversal ####
 
 - A crawler needs a place to start.  This is done by providing one or more *seed URIs* to be dereferenced by the crawler when it starts.
-- A crawler needs a way to continue.  This is done with a *frontier*, a master list of URIs to be crawled, and a *queue*, an immediate list of URIs to be crawled.  It is typical for each thread of a crawl process to have its own queue, which are directly populated from the frontier.
+- A crawler needs a way to continue.  This is done with a *frontier*, a master list of URIs to be crawled, and a *queue*, an immediate list of URIs to be crawled.  It is typical for each thread of a crawl process to have its own queue, which is directly populated from the frontier.
 
-The queue is initially populated with the seed URIs, and the crawler will dereference the seeds to extract their content.  The content is parsed and the outlinked URIs are added to the frontier.  When the queue is exhausted, newly discovered URIs now in the frontier are used to repopulate the queue and work starts again.  This recursive relationship, where the frontier URIs are crawled to reveal more frontier URIs, defines a pure breadth-first traversal of the web if the process is unaltered by prioritization or filtering of URIs.
+For simplicity, imagine a single crawler thread.  The queue is initially populated with the seed URIs, and the crawler will dereference the seeds to extract their content.  The content is parsed and the outlinked URIs are added to the frontier.  When the queue is exhausted, newly discovered URIs now in the frontier are used to repopulate the queue and work starts again.  This recursive relationship, where the frontier URIs are crawled to reveal more frontier URIs, defines a pure breadth-first traversal of the web if the process is unaltered by prioritization or filtering of URIs.
 
 The high-level structures of seed, frontier, and queue are implemented very broadly in web crawlers: 
-- Semantic crawlers Slug [{dodds}] and LDSpider, [{isele}] which is implemented in the Semantic Web Search Engine [{hogan}]
+- Semantic crawlers Slug [{dodds}] and LDSpider, [{isele}] the latter of which is implemented in the Semantic Web Search Engine [{hogan}]
 - Traditional crawlers including Mercator [{heydon}] and Google's first crawler [{brin}]
 - Historical crawlers from the advent of automated web traversal like RBSE Spider [{eichmann}] and the World Wide Web Worm [{mcbryan}]
 
@@ -31,7 +31,7 @@ A crawler's purpose is to collect information about the content it's exploring. 
 - A complete copy of the page content
 - An index of terms or media on the page
 - A map of the inlinks and outlinks of the page
-- A set of provenance or meta data
+- A set of provenance data or metadata
 
 Once this data is collected, it can be processed, displayed, queried, or simply stored.
 
@@ -44,8 +44,8 @@ By manipulation of the URI queue(s) or frontier, the crawl can be prioritized so
 
 ##### 3.1 Politeness #####
 
-A crawler is necessarily a high traffic client, so they can heavily stress servers.  The following principles are to keep web crawling civil:
-- In accordance with Robot Exclusion Principle [{cite}], crawlers should respect the constraints within a server's *robots.txt* file.  This is a guideline, not a requirement - a URI prefix is not hidden from a crawler if it is forbidden in robots.txt (and malicious crawlers often don't respect those constraints)
+A crawler can be a very high traffic client, so it can heavily stress servers.  The following principles are to keep web crawling civil:
+- In accordance with Robot Exclusion Protocol [{robot}], crawlers should respect the constraints within a server's *robots.txt* file.  This is a guideline, not a requirement - a URI prefix is not hidden from a crawler if it is forbidden in robots.txt (and malicious crawlers often don't respect those constraints)
 - In order to avoid hammering a particular server with too many requests, a minumum delay between requests of a particular domain should be implemented.  This is a good general guideline, but there is an optional minimum delay stipulation within the Robot Exclusion Principle
 
 ##### 3.2 Page importance #####
@@ -65,14 +65,18 @@ One may only be interested in a particular type of content, like PDF, jpeg, or r
 
 ###### 3.2.3 Topical focus ######
 
-#TODO:  Keep going here.
-
 A crawler's behaviour may also be constrained by attempting to crawl webpages that are only relevant to a specific topic.  The topic of the crawl can be described by things like seed URIs or string queries.
-A method of addressing the searchability of an ever-increasing web is "by distributing the crawling process across users, queries, or even client computers," [{menczer}] so a crawler that efficiently aggregates content that is related to a particular query topic is an asset.  The algorithms for a topical focus can fit into one of two categories: fixed relevancy and adaptive relevancy. [{diligenti}] 
-With fixed relevancy, the criteria for measuring the relevancy of a page to the query topic is defined before the crawl commences and does not change for the duration of the crawl. 
-With adaptive relevancy, the results of the crawl affect the criteria for document relevancy.  Machine learning techniques are used heavily in these implementations.
+A method of addressing the searchability of an ever-increasing web is "by distributing the crawling process across users, queries, or even client computers," [{menczer}] so a crawler that efficiently aggregates content that is related to a particular query topic is an asset.  
+Topical crawlers prioritize queues and/or frontiers by assigning an importance value to each URI and sorting the URI lists accordingly.  The goal is to accurately guess which URIs will lead to content that is most related to the predefined topic before they have been crawled.  The data on which to base these guesses is the data that has been collected or processed from the crawled URIs that led to the discovery of the URI being ranked.  
+For instance, if a URI has been discovered on several pages that are related to the topic, it may deserve a high rank within the frontier.  Alternatively, a URI discovered on a page in close proximity to key words related to the topic may deserve a high rank as well.
+There are many such approaches, simple and advanced, for assigning rank based on topical relevance. [{dong}][{diligenti}][{menczer}]  The common element between them is that they exploit structure as it pertains to the discovered URIs.  This includes link structure (like PageRank), semistructured page data (like HTML tags), structure discovered by post-processing (like Natural Language Processing), or structured data (like Microformats or RDF).
+These sources of structure can be individually analyzed and combined to nearly limitless complexity, but the reason is to get a heuristic for machine understanding of the meaning (semantics) of content leading to URI discovery so that the content topic of URIs may be guessed.
 
-Regardless of which ...  **CONTINUE HERE**
+The algorithms for a topical focus can fit into one of two categories: fixed relevancy and adaptive relevancy. [{diligenti}] 
+With fixed relevancy, the criteria for measuring the relevancy of a page to the query topic is defined before the crawl commences and does not change for the duration of the crawl. 
+With adaptive relevancy, the results of the crawl affect the criteria for document relevancy.
+
+Regardless of which class of algorithm is used, the only way a piece of software can judge whether or not content will be relevant is by exploiting structure (as described above).  In the context of the semantic web, we have completely structured content made of links between URIs that dereference to more completely structured content
 
 #### Appendix A - Documents Are Getting Fuzzier ####
 
@@ -111,3 +115,4 @@ Regardless of which ...  **CONTINUE HERE**
 [{hogan}] A. Hogan, A. Harth, J. Ubrich, S. Kinsella, A. Polleres, S. Decker; Searching and Browsing Linked Data with SWSE: the Semantic Web Search Engine; Digital Enterprise Research Institute, National University of Ireland, Galway; AIFB, Karlsruhe Institute of Technology, Germany (2011)
 [{kleinberg}] J. Kleinberg; Authoritative Sources in a Hyperlinked Environment; Cornell University; Ithaca, New York (1998)
 [{mcbryan}] O. McBryan; GENVL and WWWW: Tools for Taming the Web; Proceeding s of the First International World Wide Web Conference (1994)
+[{robot}] http://www.robotstxt.org/robotstxt.html 
