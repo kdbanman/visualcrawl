@@ -18,12 +18,12 @@ Examples and visualizations of semantic web crawls using:
 
 *The initial motivation for this project was to produce [this video](http://www.youtube.com/watch?v=CCBvwWIba3c) and [this other video](http://www.youtube.com/watch?v=w9UKUpyqw_4).*
 
-There are many unanswered questions regarding the nature of semantic web crawling (see [SemCrawl.md](docs/SemCrawl.md) in docs directory), and this is my attempt to sharpen those questions with some visual depictions of different crawling strategies.
+There are many unanswered questions regarding the nature of semantic web crawling (see [SemCrawl.md](visualcrawl/docs/SemCrawl.md) in docs directory), and this is my attempt to sharpen those questions with some visual depictions of different crawling strategies.
 
 ### Version 0.2:
 
 This is an attempt to address the inadequacies of version 0.1 (see 0.1 analysis below). Rather than visualizing a dynamic graph of the HTTP traffic of the crawler, one may visualize the RDF graph that the crawler aggregates as it crawls.  There is a way to visualize just the final results of the crawl, as well as a dynamic graph of the crawl results.
-*There was not time enough to implement more advanced crawl strategies, due partially to LDSpider's complexity and unconventional structure.  This problem was exaggerated by my unfamiliarity with java.  However, a breadth-first crawl was implemented and the static and dynamic RDF visualizations were made to work.*
+*There was not time enough to implement more advanced crawl strategies, due partially to LDSpider's complexity and unimplemented features (ABox/TBox link constraints, sorted queue).  This problem was exaggerated by my unfamiliarity with java.  However, a breadth-first crawl was implemented and the static and dynamic RDF visualizations were made to work.*
 
 ##### Static:
 
