@@ -6,7 +6,9 @@ Kirby Banman, <kdbanman@ualberta.ca>
 Examples and visualizations of semantic web crawls using:
 
 ### Version 0.2:
+- Graph Visualizer: [Gephi 0.8.1 beta 201202141941](http://gephi.org/) using plugin [SemanticWebImport](https://gephi.org/plugins/semanticwebimport/)
 - Semantic Crawler: [LDSpider 1.1e](http://code.google.com/p/ldspider/) revision 304 checked out for extension to .gexf output
+- Triplestore Instance: [4Store 1.1.3](http://4store.org/trac/wiki/Download)
 
 ### Version 0.1:
 - Graph Visualizer: [Gephi 0.8.1 beta 201202141941](http://gephi.org/) using plugin [HttpGraph 1.0.6](https://gephi.org/plugins/http-graph/)
@@ -16,19 +18,28 @@ Examples and visualizations of semantic web crawls using:
 
 *The initial motivation for this project was to produce [this video](http://www.youtube.com/watch?v=CCBvwWIba3c) and [this other video](http://www.youtube.com/watch?v=w9UKUpyqw_4).*
 
-There are many unanswered questions regarding the nature of semantic web crawling, and this is my attempt to sharpen those questions with some visual depictions of different crawling strategies.  Different methods of crawling give rise to very different behaviour, which should be evident in the different image, graph, and video visualizations.
+There are many unanswered questions regarding the nature of semantic web crawling (see [SemCrawl.md](docs/SemCrawl.md) in docs directory), and this is my attempt to sharpen those questions with some visual depictions of different crawling strategies.
 
 ### Version 0.2:
 
-This  is an attempt to address the inadequacies of gc 0.1 (see 0.1 analysis below).  More advanced crawl strategies will be implemented in an attempt to focus the crawl behaviour and results on a particular topic.  Insights and implementations of these strategies are explored in semantic [{dong}] and traditional [{menczer}][{diligenti}] web contexts.
+This is an attempt to address the inadequacies of version 0.1 (see 0.1 analysis below). Rather than visualizing a dynamic graph of the HTTP traffic of the crawler, one may visualize the RDF graph that the crawler aggregates as it crawls.  There is a way to visualize just the final results of the crawl, as well as a dynamic graph of the crawl results.
+*There was not time enough to implement more advanced crawl strategies, due partially to LDSpider's complexity and unconventional structure.  This problem was exaggerated by my unfamiliarity with java.  However, a breadth-first crawl was implemented and the static and dynamic RDF visualizations were made to work.*
 
-- Each crawl strategy is given a subdirectory of ver0.2/
-- Each subdirectory contains:
-    1. A java executable for the crawl
-    2. A text description of the crawl strategy
-    3. An rdf+xml file of the crawl results
-    4. A graph visualization of the crawl results in `.svg`, `.gml`, and `.gephi` formats
-    5. (Tentative) A .gexf dynamic graph file for visualization of crawler behaviour
+##### Static:
+
+java -jar BreadthVis.jar -static <SPARQL endpoint update URI> <crawl seed URI> <crawl depth> <URIs per crawl round>
+
+The basic idea here is that the crawl results are fed into a triplestore as a unique named graph for each crawl.  To visualize, Gephi's SemanticWebImport plugin can be used to query the triplestore using a CONSTRUCT query for all triples under the specific crawl's named graph.
+
+######TODO: implement CLI, output graph name at end of crawl, describe steps in gephi
+
+##### Dynamic:
+
+java -jar BreadthVis.jar -dynamic <.gexf output filename> <crawl seed URI> <crawl depth> <URIs per crawl round>
+
+######TODO: implement CLI, describe steps in gephi
+
+For reference, each crawl will create a directory of the same name as the named graph used in static mode.  The directory will contain ######TODO: log types and names
 
 ### Version 0.1:
 
