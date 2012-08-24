@@ -7,7 +7,7 @@ Examples and visualizations of semantic web crawls using:
 
 ### Version 0.2:
 - Graph Visualizer: [Gephi 0.8.1 beta 201202141941](http://gephi.org/) using plugin [SemanticWebImport](https://gephi.org/plugins/semanticwebimport/)
-- Semantic Crawler: [LDSpider 1.1e](http://code.google.com/p/ldspider/) revision 304 checked out for extension to .gexf output
+- Semantic Crawler: [LDSpider 1.1e](http://code.google.com/p/ldspider/) revision 304 checked out for extension to .gexf output using the [gexf4j 0.4.0](https://github.com/francesco-ficarola/gexf4j) library
 - Triplestore Instance: [4Store 1.1.3](http://4store.org/trac/wiki/Download)
 
 ### Version 0.1:
