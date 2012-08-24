@@ -27,7 +27,7 @@ This is an attempt to address the inadequacies of version 0.1 (see 0.1 analysis 
 
 ##### Static:
 
-java -jar BreadthVis.jar -static <SPARQL endpoint update URI> <crawl seed URI> <crawl depth> <URIs per crawl round>
+java -jar BreadthVis.jar -static [SPARQL endpoint update URI] [crawl seed URI] [crawl depth] [URIs per crawl round]
 
 The basic idea here is that the crawl results are fed into a triplestore as a unique named graph for each crawl.  To visualize, Gephi's SemanticWebImport plugin can be used to query the triplestore using a CONSTRUCT query for all triples under the specific crawl's named graph.
 
@@ -35,7 +35,7 @@ The basic idea here is that the crawl results are fed into a triplestore as a un
 
 ##### Dynamic:
 
-java -jar BreadthVis.jar -dynamic <.gexf output filename> <crawl seed URI> <crawl depth> <URIs per crawl round>
+java -jar BreadthVis.jar -dynamic [.gexf output filename] [crawl seed URI] [crawl depth] [URIs per crawl round]
 
 ######TODO: implement CLI, describe steps in gephi
 
