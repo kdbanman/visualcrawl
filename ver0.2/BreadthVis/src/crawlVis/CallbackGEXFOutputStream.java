@@ -28,7 +28,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.HashMap;
 
-//  something might try to call .startDocument() all the fucking time.  relocate to constructor or make my own method
+// something might try to call .startDocument() all the fucking time.  relocate to constructor or make my own method
 // namespace conflicts with .Node may cause problems.
 public class CallbackGEXFOutputStream implements Callback {
 	

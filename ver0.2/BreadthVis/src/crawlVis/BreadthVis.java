@@ -37,69 +37,96 @@ public class BreadthVis {
 	 * @param args
 	 * @throws URISyntaxException 
 	 * @throws IOException 
+	 * @inproceedings{ldspider,
+		author = { Robert Isele and J\"{u}rgen Umbrich and Chris Bizer and Andreas Harth},
+		title = { {LDSpider}: An open-source crawling framework for the Web of Linked Data} ,
+		year = { 2010 },
+		booktitle = { Proceedings of 9th International Semantic Web Conference (ISWC 2010) Posters and Demos},
+		url = { http://iswc2010.semanticweb.org/pdf/495.pdf }
+		}
 	 */
 	public static void main(String[] args) throws URISyntaxException, IOException {
 	    
-		/* TODO: configure for command line use.  options for NX, SPARQL, GEXF output; breadth, depth, sequential (?) crawls; sorted and unsorted frontiers
-		for (String arg : args) {
-			System.out.println(arg);
+		/*
+		 * Ensure command line input is valid
+		 */
+		String modeOption = null;
+		try {
+			modeOption = args[0];
+		} catch (ArrayIndexOutOfBoundsException e) {
+			printUsage();
+			System.exit(-1);
 		}
-		System.exit(0);*/
 		
-		// define crawl seed and crawl extent parameters
-	    String seedUri = "http://dbpedia.org/resource/Albert_Einstein";
-	    // the following parameters only apply to a breadth-first traversal
-	    int depth = 8;
-	    int maxURIs = 5;
-	    int maxPLDs = 2;
-	    // the following parameter only applies to a depth-first traversal
-	    int depthMaxURIs = 30;
+		if ( args.length != 5 || ! (modeOption.equals("-static") || modeOption.equals("-dynamic")) ) {
+			System.out.println("" + args.length + " " + modeOption);
+			printUsage();
+			System.exit(-1);
+		}
 		
-		// output to either sparql endpoint, nquads file, or dynamic gexf file
-		//String out = "SPARQL";
-		//String out = "NX";
-		String out = "GEXF";
+		String seedURI = args[2];
+		if (!seedURI.substring(0, 7).equalsIgnoreCase("http://")) {
+			System.out.println("Seed URI must begin with http://");
+			System.exit(-1);
+		}
 		
-		String front = "UNSORTED";
-		//String front = "SORTED";
+		// number of crawl rounds
+		int depth = -1;
+		// ceiling of URIs to crawl (checked per round)
+		int maxURIs = -1;
+		// max number of URIs crawled per pay-level domain per crawl round
+		int maxPLDs = 5;
+		try {
+			depth = Integer.parseInt(args[3]);
+			maxURIs = Integer.parseInt(args[4]);
+		} catch (NumberFormatException e) {
+			System.out.println("Crawl depth and URI ceiling must be integer values.");
+			System.exit(-1);
+		}
 		
-		String traversal = "BREADTH";
-		//String traversal = "DEPTH";
-		//String traversal = "SEQUENTIAL";
+		String endpoint = null;
+		String outName = null;
+		if (modeOption.equals("-static")) {
+			endpoint = args[1].toLowerCase();
+			if (! (endpoint.startsWith("http://") || endpoint.endsWith("/update/"))) {
+				System.out.println("SPARQL endpoint update URU must start with http:// and end with /update/");
+				System.exit(-1);
+			}
+		} else if (modeOption.equals("-dynamic")) {
+			outName = args[1].toLowerCase();
+			if (! outName.endsWith(".gexf")) {
+				outName += ".gexf";
+			}
+		}
+		//TODO:  include in CLI
+		//String front = "UNSORTED";
+		String front = "SORTED";
 		
-		// set link follow constraints  (i have doubts that this does anything)
-		Crawler.Mode mode = Crawler.Mode.ABOX_ONLY;
+		// set link follow constraints  (not properly implemented in LDSpider 1.1e rev 304)
+		//Crawler.Mode mode = Crawler.Mode.ABOX_ONLY;
 		//Crawler.Mode mode = Crawler.Mode.TBOX_ONLY;
-		//Crawler.Mode mode = Crawler.Mode.ABOX_AND_TBOX;
+		Crawler.Mode mode = Crawler.Mode.ABOX_AND_TBOX;
 		
-		// Assemble relative path for each crawl
+		// Assemble relative path for each crawl by date/settings identifier
 		Date date = new Date();
-		String crawlTime = "crawls/" + date.toString().substring(4, 16).replace(" ", "_").replace(":", "_");
-		crawlTime += "_" + front + "_" + traversal + "_" + mode.toString();
+		String crawlID = "crawls/" + date.toString().substring(4, 16).replace(" ", "_").replace(":", "_");
+		crawlID += "_" + depth + "_" + maxURIs;
 		// File object to make directory for crawls using .mkdirs()
-		File crawlFile = new File(crawlTime);
+		File crawlFile = new File(crawlID);
 		crawlFile.mkdirs();
 		
 		Sink sink = null;
 		Callback cbOutstream = null;
 		OutputStream outstream = null;
-		if (out == "NX") { 
-			// initialize callback sink to output crawled triples as NQuads
-			outstream = new BufferedOutputStream(new FileOutputStream(crawlTime + "/outtest.nx"));
-			cbOutstream = new CallbackNxOutputStream(outstream);
-			sink = new SinkCallback(cbOutstream);
-			cbOutstream.startDocument();
-		}
-		else if (out == "SPARQL") { 
+		if (modeOption.equals("-static")) { 
 			// initialize callback sink to output crawled triples to a sparql endpoint by update POSTs
-			String endpoint = "http://192.168.1.133:8000/update/";
 			boolean provenance = false;
-			String graph = "local:" + crawlTime;
+			String graph = "local:" + crawlID;
 			sink = new SinkSparul(endpoint, provenance, graph);
 		}
-		else if (out == "GEXF") {
+		else if (modeOption.equals("-dynamic")) {
 			// initialize callback sink to output crawled triples to a dynamic graph in .gexf format
-			outstream = new BufferedOutputStream(new FileOutputStream(crawlTime + "/outtest.gexf"));
+			outstream = new BufferedOutputStream(new FileOutputStream(crawlID + "/" + outName));
 			cbOutstream = new CallbackGEXFOutputStream(outstream);
 			sink = new SinkCallback(cbOutstream);
 			cbOutstream.startDocument();
@@ -114,11 +141,11 @@ public class BreadthVis {
 		 */
 		
 	    // initialize stream for access log file output
-	    OutputStream logstream = new FileOutputStream(crawlTime + "/logtest.txt");
+	    OutputStream logstream = new FileOutputStream(crawlID + "/accessLog.txt");
 	    PrintStream logprint = new PrintStream(new BufferedOutputStream(logstream));
 	    
 	    // initialize callback sink for redirects.nx file
-	    OutputStream redirects = new BufferedOutputStream(new FileOutputStream(crawlTime + "/redirectstest.nx"));
+	    OutputStream redirects = new BufferedOutputStream(new FileOutputStream(crawlID + "/redirectLog.nx"));
 	    Callback cbRedirects = new CallbackNxOutputStream(redirects);
 	    cbRedirects.startDocument();
 	    
@@ -139,7 +166,7 @@ public class BreadthVis {
 	    	System.out.println("crawl frontier was not set");
 	    	System.exit(0);
 	    }
-	    frontier.add(new URI(seedUri));
+	    frontier.add(new URI(seedURI));
 	    
 	    // set crawler output sink
 	    crawler.setOutputCallback(sink);
@@ -160,21 +187,14 @@ public class BreadthVis {
 	     *  
 	     */
 	    
-	    // begin crawl according to chosen mode
-	    // TODO: get load balanced to be fast.
-	    if (traversal == "BREADTH") { crawler.evaluateBreadthFirst(frontier, depth, maxURIs, maxPLDs, mode); }
-	    else if (traversal == "DEPTH") { crawler.evaluateLoadBalanced(frontier, depthMaxURIs); }
-	    else if (traversal == "SEQUENTIAL") { crawler.evaluateSequential(frontier); }
-	    else {
-	    	// crawl mode was not set
-	    	System.out.println("crawl mode was not set");
-	    	System.exit(0);
-	    }
+	    // begin crawl 
+	    crawler.evaluateBreadthFirst(frontier, depth, maxURIs, maxPLDs, mode); 
 	    
 	    // close output files and print final status of crawl
 	    cbRedirects.endDocument();
 	    logprint.close();
-	    if (out == "NX" || out == "GEXF") {
+	    if (modeOption.equals("-dynamic")) {
+	    	// the hack to properly finish the .gexf file is in the .toString method ... :(
 	    	System.out.println(cbOutstream.toString());
 	    	cbOutstream.endDocument();
 	    }
@@ -182,6 +202,28 @@ public class BreadthVis {
 	    System.runFinalization();
 	    System.exit(0);
 	    }
+	
+	private static void printUsage() {
+		System.out.println("");
+		System.out.println("~~USAGE:~~");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Static mode where crawl results are POSTed to a SPARQL endpoint update address:");
+		System.out.println("");
+		System.out.println("java -jar BreadthVis.jar -static [SPARQL endpoint update URI] [crawl seed URI] [crawl depth] [URIs per crawl round]");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Dynamic mode where crawl results are saved to a dynamic .gexf graph file:");
+		System.out.println("");
+		System.out.println("java -jar BreadthVis.jar -dynamic [.gexf output filename] [crawl seed URI] [crawl depth] [URIs per crawl round]");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("A folder will be created in a directory called 'crawls' for each crawl, containing:");
+		System.out.println("");
+		System.out.println("accessLog.txt - an HTTP error log");
+		System.out.println("redirectLog.nx - a log of HTTP redirects (as a list of URI pairs)");
+		System.out.println("results.gexf - (if -dynamic mode) a dynamic graph file of the crawl results");
+	}
 
 	
 	}
