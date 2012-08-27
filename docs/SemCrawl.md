@@ -1,9 +1,7 @@
 # Semantic Web Crawling #
 
-**WORK IN PROGRESS:**
 - This document is intended for readers already familiar with semantic web principles and technologies who wish to explore the idea of semantic web crawling.  No knowledge of web crawlers is assumed.
 - Efficiency and parallelization will not be explored.
-- Citations will be of the form [{name}] until the document is finalized and the bibliography can be alphabetized.
 
 ## Web Crawlers
 
@@ -66,7 +64,7 @@ One may only be interested in a particular type of content, like PDF, jpeg, or r
 ###### 3.2.3 Topical focus ######
 
 A crawler's behaviour may also be constrained by attempting to crawl webpages that are only relevant to a specific topic.  The topic of the crawl can be described by things like seed URIs or string queries.
-A method of addressing the searchability of an ever-increasing web is "by distributing the crawling process across users, queries, or even client computers," [{menczer}] so a crawler that efficiently aggregates content that is related to a particular query topic is an asset.  
+A method of addressing the searchability of an ever-increasing web is "by distributing the crawling process across users, queries, or even client computers." [{menczer}]  A crawler that efficiently aggregates content that is related to a particular query topic is an asset any time the goal of a web traversal can be narrowed to a particular topic or set of topics.
 Topical crawlers prioritize queues and/or frontiers by assigning an importance value to each URI and sorting the URI lists accordingly.  The goal is to accurately guess which URIs will lead to content that is most related to the predefined topic before they have been crawled.  The data on which to base these guesses is the data that has been collected or processed from the crawled URIs that led to the discovery of the URI being ranked.  
 For instance, if a URI has been discovered on several pages that are related to the topic, it may deserve a high rank within the frontier.  Alternatively, a URI discovered on a page in close proximity to key words related to the topic may deserve a high rank as well.
 There are many such approaches, simple and advanced, for assigning rank based on topical relevance. [{dong}][{diligenti}][{menczer}]  The common element between them is that they exploit structure as it pertains to the discovered URIs.  This includes link structure (like PageRank), semistructured page data (like HTML tags), structure discovered by post-processing (like Natural Language Processing), or structured data (like Microformats or RDF).
