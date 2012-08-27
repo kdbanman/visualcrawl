@@ -28,8 +28,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.HashMap;
 
-// something might try to call .startDocument() all the fucking time.  relocate to constructor or make my own method
-// namespace conflicts with .Node may cause problems.
 public class CallbackGEXFOutputStream implements Callback {
 	
 	final OutputStream _out;
@@ -56,13 +54,52 @@ public class CallbackGEXFOutputStream implements Callback {
 		_close = close;
 	}
 	
+	/*
+	 * NOTE:	Within LDSpider, the .startDocument() and .endDocument() methods are called numerous times
+	 * 			throughout the crawl.  It may have been their intention to split the crawl results up into
+	 * 			many files, but their final products don't reflect this.  Their CallbackRDFXMLOutputStream
+	 * 			writes a single document containing numerous headers and footers because of the numerous
+	 * 			aforementioned method calls.  Their CallbackNxOutputStream is affected by the same bug, but
+	 * 			the .startDocument() and .endDocument() methods were designed to not affect the actual
+	 * 			document.
+	 * 
+	 * 			The GEXF4J library requires the .startDocument() and .endDocument() methods, so 
+	 */
+	
 	@Override
 	public void startDocument() {
-
+		// HACK:	the class is initialized with _justStarted as true, so the .reallyStartDocument() method
+		//			is only called once
 		if (_justStarted){
 			this.reallyStartDocument();
 		}
 		_justStarted = false;
+	}
+	
+	public void reallyStartDocument() {
+		
+		_refTime = System.currentTimeMillis();
+		_cnt = 0;
+		_gexf = new GexfImpl();
+		
+		_gexf.getMetadata()
+			.setCreator("LDSpider @ UAlberta ECE")
+			.setDescription("Semantic webcrawl results")
+			.setLastModified(new Date());
+		
+		_graph = _gexf.getGraph();
+		_graph.setDefaultEdgeType(EdgeType.DIRECTED)
+			.setMode(Mode.DYNAMIC)
+			.setTimeType(TimeFormat.INTEGER);
+		
+		_nodeAttrList = new AttributeListImpl(AttributeClass.NODE);
+		_graph.getAttributeLists().add(_nodeAttrList);
+		_attTimesCrawled = _nodeAttrList.createAttribute(AttributeType.INTEGER, "timesCrawled");
+		
+		
+		_nodeMap = new HashMap<String, Node>();
+		_tripleIDs = new HashSet<String>();
+		
 	}
 	
 	@Override
@@ -145,35 +182,10 @@ public class CallbackGEXFOutputStream implements Callback {
 		_cnt++;
 	}
 	
-	public void reallyStartDocument() {
-		
-		_refTime = System.currentTimeMillis();
-		_cnt = 0;
-		_gexf = new GexfImpl();
-		
-		_gexf.getMetadata()
-			.setCreator("LDSpider @ UAlberta ECE")
-			.setDescription("Semantic webcrawl results")
-			.setLastModified(new Date());
-		
-		_graph = _gexf.getGraph();
-		_graph.setDefaultEdgeType(EdgeType.DIRECTED)
-			.setMode(Mode.DYNAMIC)
-			.setTimeType(TimeFormat.INTEGER);
-		
-		_nodeAttrList = new AttributeListImpl(AttributeClass.NODE);
-		_graph.getAttributeLists().add(_nodeAttrList);
-		_attTimesCrawled = _nodeAttrList.createAttribute(AttributeType.INTEGER, "timesCrawled");
-		
-		
-		_nodeMap = new HashMap<String, Node>();
-		_tripleIDs = new HashSet<String>();
-		
-	}
-	
 	@Override
 	public void endDocument() {
-		
+		// HACK:	So the .endDocument() doesn't write the output prematurely, _close must be set to true for
+		//			the document to be written.
 		if (_close) {
 			StaxGraphWriter graphWriter = new StaxGraphWriter();
 			try {
@@ -186,8 +198,11 @@ public class CallbackGEXFOutputStream implements Callback {
 	}
 	
 	public String toString() {
+		return _cnt + " tuples in " + (System.currentTimeMillis() - _refTime) + "ms";
+	}
+	
+	public void readyToClose() {
 		// hack to *actually* trigger document writing
 		_close = true;
-		return _cnt + " tuples in " + (System.currentTimeMillis() - _refTime) + "ms";
 	}
 }

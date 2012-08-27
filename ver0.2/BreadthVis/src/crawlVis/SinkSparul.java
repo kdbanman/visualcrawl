@@ -19,7 +19,7 @@ import com.ontologycentral.ldspider.hooks.sink.Provenance;
  * 
  * @author RobertIsele
  * 
- * changes made from 20 Nov 2011 rev. R288 by kdbanman
+ * changes made from 20 Nov 2011 rev. R288 by kdbanman to be compatible with 4Store
  */
 public class SinkSparul implements Sink {
 
@@ -133,8 +133,6 @@ public class SinkSparul implements Sink {
                         _connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
                         _connection.setRequestProperty("Accept", "application/rdf+xml");
                         _writer = new OutputStreamWriter(_connection.getOutputStream(), "UTF-8");
-                        //File postTest = new File("sparql_log.txt");
-                        //_writer = new FileWriter(postTest);
                         _statements = 0;
 
                         //SPARUL Requests       
@@ -142,15 +140,8 @@ public class SinkSparul implements Sink {
                         String graphUri = _graphUri != null ? _graphUri : provUri;
 
                         _writer.write("update=");
-                        //System.out.print("update=");  //  ***************
-                        if(newGraph) {
-                                //_writer.write("CREATE+SILENT+GRAPH+%3C" + graphUri + "%3E+.");
-                                //_writer.write("CREATE+SILENT+<" + graphUri + ">");
-                        }
-                        //_writer.write("INSERT+DATA+%7B+%3C" + graphUri + "%3E+%7B");
-                        //_writer.write("INSERT+DATA+{+<" + graphUri + ">+{");
-                        _writer.write("INSERT+DATA+{+GRAPH+<" + graphUri + ">+{+");
-                        //System.out.print("INSERT+DATA+{+GRAPH+<" + graphUri + ">+{+");  //  ***************
+                        
+                        _writer.write("INSERT+DATA+{+GRAPH+<" + graphUri + ">+{+"); // kdbanman
 
                         //Write provenance data
                         if(_includeProvenance) {
@@ -170,9 +161,7 @@ public class SinkSparul implements Sink {
                         if(nodes == null) throw new NullPointerException("nodes must not be null");
                         if(nodes.length < 3) throw new IllegalArgumentException("A statement must consist of at least 3 nodes");
 
-                        //_writer.write(URLEncoder.encode(nodes[0].toN3() + " " + nodes[1].toN3() + " " + nodes[2].toN3() + " .\n", "UTF-8"));
-                        _writer.write(nodes[0].toN3() + "+" + nodes[1].toN3() + "+" + nodes[2].toN3() + "+.\n");
-                        //System.out.print(nodes[0].toN3() + "+" + nodes[1].toN3() + "+" + nodes[2].toN3() + "+.\n"); //  ***************
+                        _writer.write(nodes[0].toN3() + "+" + nodes[1].toN3() + "+" + nodes[2].toN3() + "+.\n"); // kdbanman
                         _statements++;
                 }
 
@@ -186,9 +175,7 @@ public class SinkSparul implements Sink {
                         if(_connection == null) return;
 
                         //End request
-                        //_writer.write("%7D+%7D");
-                        _writer.write("+}+}");
-                        //System.out.print("+}+}"); //  ***************
+                        _writer.write("+}+}"); // kdbanman
                         _writer.close();
 
                         //Check response
