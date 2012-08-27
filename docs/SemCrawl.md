@@ -65,18 +65,36 @@ One may only be interested in a particular type of content, like PDF, jpeg, or r
 
 A crawler's behaviour may also be constrained by attempting to crawl webpages that are only relevant to a specific topic.  The topic of the crawl can be described by things like seed URIs or string queries.
 A method of addressing the searchability of an ever-increasing web is "by distributing the crawling process across users, queries, or even client computers." [{menczer}]  A crawler that efficiently aggregates content that is related to a particular query topic is an asset any time the goal of a web traversal can be narrowed to a particular topic or set of topics.
-Topical crawlers prioritize queues and/or frontiers by assigning an importance value to each URI and sorting the URI lists accordingly.  The goal is to accurately guess which URIs will lead to content that is most related to the predefined topic before they have been crawled.  The data on which to base these guesses is the data that has been collected or processed from the crawled URIs that led to the discovery of the URI being ranked.  
+
+Topical crawlers prioritize queues and/or frontiers by assigning an importance value to each URI and sorting the URI lists accordingly.
+The goal is to accurately guess which URIs will lead to content that is most related to the predefined topic before they have been crawled.
+The data on which to base these guesses is the data that has been collected or processed from the crawled URIs that led to the discovery of the URI being ranked.  
 For instance, if a URI has been discovered on several pages that are related to the topic, it may deserve a high rank within the frontier.  Alternatively, a URI discovered on a page in close proximity to key words related to the topic may deserve a high rank as well.
-There are many such approaches, simple and advanced, for assigning rank based on topical relevance. [{dong}][{diligenti}][{menczer}]  The common element between them is that they exploit structure as it pertains to the discovered URIs.  This includes link structure (like PageRank), semistructured page data (like HTML tags), structure discovered by post-processing (like Natural Language Processing), or structured data (like Microformats or RDF).
-These sources of structure can be individually analyzed and combined to nearly limitless complexity, but the reason is to get a heuristic for machine understanding of the meaning (semantics) of content leading to URI discovery so that the content topic of URIs may be guessed.
+
+There are many such approaches, simple and advanced, for assigning rank based on topical relevance. [{dong}][{diligenti}][{menczer}]
+The common element between them is that they exploit structure as it pertains to the discovered URIs.
+This includes link structure (like PageRank), semistructured page data (like HTML tags), structured data (like Microformats), or structure discovered by post-processing (like Natural Language Processing).
+These sources of structure can be individually analyzed and combined to nearly limitless complexity, but the reason for such analysis is to get a heuristic for machine understanding of the meaning (semantics) of content leading to URI discovery so that the content topic of URIs may be guessed.
 
 The algorithms for a topical focus can fit into one of two categories: fixed relevancy and adaptive relevancy. [{diligenti}] 
 With fixed relevancy, the criteria for measuring the relevancy of a page to the query topic is defined before the crawl commences and does not change for the duration of the crawl. 
 With adaptive relevancy, the results of the crawl affect the criteria for document relevancy.
 
-Regardless of which class of algorithm is used, the only way a piece of software can judge whether or not content will be relevant is by exploiting structure (as described above).  In the context of the semantic web, we have completely structured content made of links between URIs that dereference to more completely structured content
+Regardless of which class of algorithm is used, the only way a piece of software can judge whether or not content will be relevant is by exploiting structure (as described above).
+The essence of RDF in the semantic web is to have fully structured content: entities, identified by URIs, linked by predicates, identified by URIs.
+This mirrors how humans have encoded data in natural language in the structure of a sentence; with a subject, predicate, and object; where those three parts are identified by URIs that point to data (of the same format) describing the entities they identify.
+In light of this, consider topically focused crawling and how completely different this environment is:
+- Rather than using natural language processing to identify semantic patterns (such as Haerst patterns [{snow}]), they are already encoded in RDF
+- In addition to the scattered link structure of the traditional web in the form of rdfs:seeAlso and owl:sameAs [{halpin}]), the semantic web's content can be interlinked by typed links in the form of predicates
+- The entities - subjects and objects - are identified in the traditional web with words relevant to human language, whereas those entities are only tied to human language by use of literals in the semantic web as RDF
 
-#### Appendix A - Documents Are Getting Fuzzier ####
+These represent significant changes to the web environment and, consequentially, the methods used to crawl it.
+This gives rise to novel opportunities as well as novel questions, and addressing these is of tantalizingly unknown potential.
+The VisualCrawl project demonstrates (by example, at least) that the semantic web crawling problem can be modeled as a large dynamic network, and that the data can be visualized as such.
+Leveraging human percecption and intuition for analysis of structure and transition of large dynamic networks can be effective for sharpening our questions, which is why visualization is an important tool. [{bastian}]
+
+
+#### Appendix A - Documents Are Getting Fuzzier ###
 
 *Here I attempt to draw the readers attention to how the nature of web documents (and, hence, the links between them) have evolved with turning points in the web.  This is relevant to crawling, as web documents are effectively the ecosystem within which crawlers exist.*
 
@@ -106,11 +124,15 @@ Regardless of which class of algorithm is used, the only way a piece of software
 
 #### Biblography ####
 
+[{bastian}] M. Bastian, S. Heymann, M. Jacomy; Gephi: An Open Source Software for Exploring and Manipulating Networks;
+Association for the Advancement of Artificial Intelligence; gephi.org/publications/gephi-bastian-feb09.pdf (2009)
 [{brin}] S. Brin, L. Page; The Anatomy of a Large-Scale Hypertextual Web Search Engine; Computer Networks 30 (1-7) (1998) 107–117
 [{dodds}] L. Dodds; Slug: A Semantic Web Crawler; http://www.ldodds.com/projects/slug (2006)
 [{eichmann}] D. Eichmann; The RBSE Spider - Balancing Effective Search Against Web Load; University of Houston - Clear Lake (1994)
+[{halpin}] H. Halpin, I. Herman; When owl:sameAs isn't the Same: An Analysis of Identity Links on the Semantic Web; RDF Next Steps Workshop, June 26-27, 2010, Palo Alto; http://www.w3.org/2009/12/rdf-ws/papers/ws21 (2010)
 [{heydon}] A. Heydon, M. Najork; Mercator: A Scalable, Extensible Web Crawler; Compaq Systems Research Center, (1999)
 [{hogan}] A. Hogan, A. Harth, J. Ubrich, S. Kinsella, A. Polleres, S. Decker; Searching and Browsing Linked Data with SWSE: the Semantic Web Search Engine; Digital Enterprise Research Institute, National University of Ireland, Galway; AIFB, Karlsruhe Institute of Technology, Germany (2011)
 [{kleinberg}] J. Kleinberg; Authoritative Sources in a Hyperlinked Environment; Cornell University; Ithaca, New York (1998)
 [{mcbryan}] O. McBryan; GENVL and WWWW: Tools for Taming the Web; Proceeding s of the First International World Wide Web Conference (1994)
 [{robot}] http://www.robotstxt.org/robotstxt.html 
+[{snow}] D. Jurafsky, A. Ng, R. Snow; Learning syntactic patterns for automatic hypernym discovery; Advances in Neural Information Processing Systems, vol 17, MIT Press; Cambridge, MA (2005)
