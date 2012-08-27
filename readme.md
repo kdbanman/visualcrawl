@@ -36,11 +36,11 @@ A folder will be created in a directory called 'crawls' for each crawl, containi
 
 java -jar BreadthVis.jar -static [endpoint] [seed] [rounds] [breadth] [frontier]
 
-[endpoint] - SPARQL endpoint update URI
-[seed] - crawl seed URI
-[rounds] - breadth-first crawl depth
-[breadth] - URIs per crawl round
-[frontier] - either -sorted or -unsorted frontier (URIs sorted by inlink degree every round)
+- [endpoint] - SPARQL endpoint update URI
+- [seed] - crawl seed URI
+- [rounds] - breadth-first crawl depth
+- [breadth] - URIs per crawl round
+- [frontier] - either -sorted or -unsorted frontier (URIs sorted by inlink degree every round)
 
 The basic idea here is that the crawl results are fed into a triplestore as a unique named graph for each crawl.  To visualize, Gephi's SemanticWebImport plugin can be used to query the triplestore using a CONSTRUCT query for all triples under the specific crawl's named graph.
 
@@ -48,11 +48,11 @@ The basic idea here is that the crawl results are fed into a triplestore as a un
 
 java -jar BreadthVis.jar -dynamic [filename] [seed] [rounds] [breadth] [frontier]
 
-[filename] - .gexf output filename
-[seed] - crawl seed URI
-[rounds] - breadth-first crawl depth
-[breadth] - URIs per crawl round
-[frontier] - either -sorted or -unsorted frontier (URIs sorted by inlink degree every round)
+- [filename] - .gexf output filename
+- [seed] - crawl seed URI
+- [rounds] - breadth-first crawl depth
+- [breadth] - URIs per crawl round
+- [frontier] - either -sorted or -unsorted frontier (URIs sorted by inlink degree every round)
 
 The .gexf results file is a dynamic, directed graph of the RDF graph that the crawler discovered.  You can [read about .gexf here](http://gexf.net/format/).  The nodes of the graph are the RDF entities (subjects or objects) and the edges of the graph ore the RDF predicates.  Each node also has an attribute `timesCrawled` which is the number of times the RDF entity was encountered during the crawl.
 
@@ -65,7 +65,7 @@ When the crawl is complete, simply open the .gexf file containing the crawl resu
 1. In the `Layout` window, choose `ForceAtlas 2` and increase the `Tolerance (speed)` to ~2 and run until semi-stable hubs form, then enable the `Prevent Overlap` option and stop the algorithm after a few more seconds.
 1. Visibility of node labels and edge labels can be toggled with buttons below the graph, but unless they are scaled appropriately, the options will slow down the rendering significantly
 
-##### Dynamics
+###### Dynamics
 
 1. To view the graph dynamically and watch the crawl results grow as they were discovered, enable the timeline option.
 1. In the timeline options menu -> Set time format... ensure `numeric` is selected.
