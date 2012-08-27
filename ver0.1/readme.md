@@ -15,7 +15,7 @@ Examples and visualizations of semantic web crawls using:
 
 There are many unanswered questions regarding the nature of semantic web crawling (see [SemCrawl.md](visualcrawl/docs/SemCrawl.md) in docs directory), and this is my attempt to sharpen those questions with some visual depictions of different crawling strategies.
 
-This is a preliminary experiment to see the difference between the classic crawl strategies of depth-first and breadth-first, initially explored in 1994 [{pinkerton}][{de bra}], in the context of the semantic web.  It also represents an exploration of visaulization techniques and tools.
+This is a preliminary experiment to see the difference between the classic crawl strategies of depth-first and breadth-first traversals in the context of the semantic web.  It also represents an exploration of visaulization techniques and tools. *Note, the depth-first traversal of LDSpider (called load balanced, is not purely depth-first).*
 
 - Crawl settings are described in the shell scripts.
 - Generated graphs show the dereferenced URIs as nodes and the links between URIs as edges.
