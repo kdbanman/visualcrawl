@@ -124,16 +124,15 @@ Leveraging human percecption and intuition for analysis of structure and transit
 
 #### Biblography ####
 
-[1] M. Bastian, S. Heymann, M. Jacomy; Gephi: An Open Source Software for Exploring and Manipulating Networks;
-Association for the Advancement of Artificial Intelligence; gephi.org/publications/gephi-bastian-feb09.pdf (2009)
-[2] S. Brin, L. Page; The Anatomy of a Large-Scale Hypertextual Web Search Engine; Computer Networks 30 (1-7) (1998) 107–117
-[3] L. Dodds; Slug: A Semantic Web Crawler; http://www.ldodds.com/projects/slug (2006)
-[4] D. Eichmann; The RBSE Spider - Balancing Effective Search Against Web Load; University of Houston - Clear Lake (1994)
-[5] H. Halpin, I. Herman; When owl:sameAs isn't the Same: An Analysis of Identity Links on the Semantic Web; RDF Next Steps Workshop, June 26-27, 2010, Palo Alto; http://www.w3.org/2009/12/rdf-ws/papers/ws21 (2010)
-[6] A. Heydon, M. Najork; Mercator: A Scalable, Extensible Web Crawler; Compaq Systems Research Center, (1999)
-[7] A. Hogan, A. Harth, J. Ubrich, S. Kinsella, A. Polleres, S. Decker; Searching and Browsing Linked Data with SWSE: the Semantic Web Search Engine; Digital Enterprise Research Institute, National University of Ireland, Galway; AIFB, Karlsruhe Institute of Technology, Germany (2011)
-[8] R. Isele, J. Umbrich, C. Bizer, A. Harth; LDSpider: An open-source crawling framework for the Web of Linked Data; AIFB, Karlsruhe Institute of Technology; DERI, National University of Ireland; Freie Universitaet Berlin, Web-based Systems Group; http://iswc2010.semanticweb.org/pdf/495.pdf (2010) 
-[9] J. Kleinberg; Authoritative Sources in a Hyperlinked Environment; Cornell University; Ithaca, New York (1998)
-[10] O. McBryan; GENVL and WWWW: Tools for Taming the Web; Proceeding s of the First International World Wide Web Conference (1994)
-[11] http://www.robotstxt.org/robotstxt.html 
-[12] D. Jurafsky, A. Ng, R. Snow; Learning syntactic patterns for automatic hypernym discovery; Advances in Neural Information Processing Systems, vol 17, MIT Press; Cambridge, MA (2005)
+1. M. Bastian, S. Heymann, M. Jacomy; Gephi: An Open Source Software for Exploring and Manipulating Networks; Association for the Advancement of Artificial Intelligence; gephi.org/publications/gephi-bastian-feb09.pdf (2009)
+2. S. Brin, L. Page; The Anatomy of a Large-Scale Hypertextual Web Search Engine; Computer Networks 30 (1-7) (1998) 107–117
+3. L. Dodds; Slug: A Semantic Web Crawler; http://www.ldodds.com/projects/slug (2006)
+4. D. Eichmann; The RBSE Spider - Balancing Effective Search Against Web Load; University of Houston - Clear Lake (1994)
+5. H. Halpin, I. Herman; When owl:sameAs isn't the Same: An Analysis of Identity Links on the Semantic Web; RDF Next Steps Workshop, June 26-27, 2010, Palo Alto; http://www.w3.org/2009/12/rdf-ws/papers/ws21 (2010)
+6. A. Heydon, M. Najork; Mercator: A Scalable, Extensible Web Crawler; Compaq Systems Research Center, (1999)
+7. A. Hogan, A. Harth, J. Ubrich, S. Kinsella, A. Polleres, S. Decker; Searching and Browsing Linked Data with SWSE: the Semantic Web Search Engine; Digital Enterprise Research Institute, National University of Ireland, Galway; AIFB, Karlsruhe Institute of Technology, Germany (2011)
+8. R. Isele, J. Umbrich, C. Bizer, A. Harth; LDSpider: An open-source crawling framework for the Web of Linked Data; AIFB, Karlsruhe Institute of Technology; DERI, National University of Ireland; Freie Universitaet Berlin, Web-based Systems Group; http://iswc2010.semanticweb.org/pdf/495.pdf (2010) 
+9. J. Kleinberg; Authoritative Sources in a Hyperlinked Environment; Cornell University; Ithaca, New York (1998)
+10. O. McBryan; GENVL and WWWW: Tools for Taming the Web; Proceeding s of the First International World Wide Web Conference (1994)
+11. http://www.robotstxt.org/robotstxt.html 
+12. D. Jurafsky, A. Ng, R. Snow; Learning syntactic patterns for automatic hypernym discovery; Advances in Neural Information Processing Systems, vol 17, MIT Press; Cambridge, MA (2005)
