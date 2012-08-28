@@ -55,28 +55,28 @@ the size and rate of expansion of the web has rendered it impossible to crawl ev
 
 In order to decide how often URIs should be crawled, Brin and Page of Google prioritize crawl frequency based on the PageRank algorithm. [2]  *Linking degree* is a common metric for page importance, and PageRank uses it to effectively model the behaviour of a user randomly surfing the web by following links and occasionally navigating to fresh URIs.  Linking degree as a measure of URI importance is defended as representing authority of the information its document holds. [9]
 
-The correctness of equating page importance to link degree is disputed in light of the Semantic Web. *This isn't defended in the literature that I've read, only stated. I would speculate that part of the dispute is founded upon the fact that a semantic web document is comprised entirely of links.  Consider a traditional web document and a semantic web document on the same topic, containing the same information in their respective formats.  The former is natural human language with relevancy links strewn throughout, while the latter is data in the form of typed links between links representing entities (data in the form of triples).  A semantic document is a collection of links itself, so the job of a crawler - traversing semantic links (triples) and storing them - becomes a job of writing one large semantic web document.  For more discussion on the difference between semantic web documents and traditional web documents, see Appendix A - Documents Are Getting Fuzzy.*
+The correctness of equating page importance to link degree is disputed in light of the Semantic Web. [13] *This isn't defended in the literature that I've read, only stated. I would speculate that part of the dispute is founded upon the fact that a semantic web document is comprised entirely of links.  Consider a traditional web document and a semantic web document on the same topic, containing the same information in their respective formats.  The former is natural human language with relevancy links strewn throughout, while the latter is data in the form of typed links between links representing entities (data in the form of triples).  A semantic document is a collection of links itself, so the job of a crawler - traversing semantic links (triples) and storing them - becomes a job of writing one large semantic web document.  For more discussion on the difference between semantic web documents and traditional web documents, see Appendix A - Documents Are Getting Fuzzy.*
 
 ###### 3.2.2 Content focus ######
 
-One may only be interested in a particular type of content, like PDF, jpeg, or rdf+xml.  There are various approaches to giving crawlers tendencies towards specific content types, but this type of restriction won't be discussed heavily here.  BioCrawler of Batzios, et. al. has an interesting approach, modelling a web crawlers as artificial life agents in the environment of the web. [{batzios}]
+One may only be interested in a particular type of content, like PDF, jpeg, or rdf+xml.  There are various approaches to giving crawlers tendencies towards specific content types, but this type of restriction won't be discussed heavily here.  BioCrawler of Batzios, et. al. has an interesting approach, modelling a web crawlers as artificial life agents in the environment of the web. [13]
 
 ###### 3.2.3 Topical focus ######
 
 A crawler's behaviour may also be constrained by attempting to crawl webpages that are only relevant to a specific topic.  The topic of the crawl can be described by things like seed URIs or string queries.
-A method of addressing the searchability of an ever-increasing web is "by distributing the crawling process across users, queries, or even client computers." [{menczer}]  A crawler that efficiently aggregates content that is related to a particular query topic is an asset any time the goal of a web traversal can be narrowed to a particular topic or set of topics.
+A method of addressing the searchability of an ever-increasing web is "by distributing the crawling process across users, queries, or even client computers." [16]  A crawler that efficiently aggregates content that is related to a particular query topic is an asset any time the goal of a web traversal can be narrowed to a particular topic or set of topics.
 
 Topical crawlers prioritize queues and/or frontiers by assigning an importance value to each URI and sorting the URI lists accordingly.
 The goal is to accurately guess which URIs will lead to content that is most related to the predefined topic before they have been crawled.
 The data on which to base these guesses is the data that has been collected or processed from the crawled URIs that led to the discovery of the URI being ranked.  
 For instance, if a URI has been discovered on several pages that are related to the topic, it may deserve a high rank within the frontier.  Alternatively, a URI discovered on a page in close proximity to key words related to the topic may deserve a high rank as well.
 
-There are many such approaches, simple and advanced, for assigning rank based on topical relevance. [{dong}][{diligenti}][{menczer}]
+There are many such approaches, simple and advanced, for assigning rank based on topical relevance. [14][15][16]
 The common element between them is that they exploit structure as it pertains to the discovered URIs.
 This includes link structure (like PageRank), semistructured page data (like HTML tags), structured data (like Microformats), or structure discovered by post-processing (like Natural Language Processing).
 These sources of structure can be individually analyzed and combined to nearly limitless complexity, but the reason for such analysis is to get a heuristic for machine understanding of the meaning (semantics) of content leading to URI discovery so that the content topic of URIs may be guessed.
 
-The algorithms for a topical focus can fit into one of two categories: fixed relevancy and adaptive relevancy. [{diligenti}] 
+The algorithms for a topical focus can fit into one of two categories: fixed relevancy and adaptive relevancy. [15] 
 With fixed relevancy, the criteria for measuring the relevancy of a page to the query topic is defined before the crawl commences and does not change for the duration of the crawl. 
 With adaptive relevancy, the results of the crawl affect the criteria for document relevancy.
 
@@ -136,3 +136,7 @@ Leveraging human percecption and intuition for analysis of structure and transit
 10. O. McBryan; GENVL and WWWW: Tools for Taming the Web; Proceeding s of the First International World Wide Web Conference (1994)
 11. http://www.robotstxt.org/robotstxt.html 
 12. D. Jurafsky, A. Ng, R. Snow; Learning syntactic patterns for automatic hypernym discovery; Advances in Neural Information Processing Systems, vol 17, MIT Press; Cambridge, MA (2005)
+13. A. Batzios, C. Dimou, A. Symeonidis, P. Mitkas; BioCrawler: An intelligent crawler for the semantic web; Department of Electrical and Computer Engineering; Elsevier Ltd (2007)
+14. H. Dong, F. Hussain, E. Chang; State of the Art in Semantic Focused Crawlers; ICCSA 2009, Part II, LNCS 5593, pp. 910-924; Springer-Verlag Berlin Heidelberg (2009)
+15. M. Diligenti, F. Coetzee, S. Lawrence, C. Giles, M. Gori; Focused Crawling Using Context Graphs; Proceedings of the 26th VLDB Conference, Cairo, Egypt, pp. 527-534 (2000)
+16. F. Menczer, G. Pant, P. Srinivasan; Topical Web Crawlers: Evaluating Adaptive Algorithms; ACM Transactions on Internet Technology, Vol. 4, No. 4, pp. 378-419; (2004)
