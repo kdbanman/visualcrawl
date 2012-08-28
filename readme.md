@@ -16,9 +16,9 @@ Examples and visualizations of semantic web crawls using:
 
 # Overview
 
-There are many unanswered questions regarding the nature of semantic web crawling (see [SemCrawl.md](visualcrawl/docs/SemCrawl.md) in docs directory), and this is my attempt to sharpen those questions with some visual depictions of different crawling strategies.
+There are many unanswered questions regarding the nature of semantic web crawling (see SemCrawl.md in docs directory), and this is my attempt to sharpen those questions with some visual depictions of different crawling strategies.
 
-*The initial motivation for this project was to produce [this video](http://www.youtube.com/watch?v=CCBvwWIba3c) and [this other video](http://www.youtube.com/watch?v=w9UKUpyqw_4).  There are now visualizations of the RDF graphs themselves [as .gexf files in each of these folders](visualcrawl/ver0.2/example_crawls), see the readme in version 0.2 to learn how to use them.
+*The initial motivation for this project was to produce [this video](http://www.youtube.com/watch?v=CCBvwWIba3c) and [this other video](http://www.youtube.com/watch?v=w9UKUpyqw_4).  There are now visualizations of the RDF graphs themselves as .gexf files in each of the folders in the ver0.2/example_crawls directory, see the readme in version 0.2 to learn how to use them.
 
 # License
 
