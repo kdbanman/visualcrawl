@@ -24,7 +24,7 @@ This is a preliminary experiment to see the difference between the classic crawl
 
 ##### Script Procedure
 
-Each script in ver0.1/:
+Each script in trafficGraph/:
 
 1. Generates directory of the same name for:
     - Associated visualisation images and graph files 

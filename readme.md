@@ -5,12 +5,12 @@ Kirby Banman, <kdbanman@ualberta.ca>
 
 Examples and visualizations of semantic web crawls using:
 
-### Version 0.2:
+### rdfGraph version:
 - Graph Visualizer: [Gephi 0.8.1 beta 201202141941](http://gephi.org/) using plugin [SemanticWebImport](https://gephi.org/plugins/semanticwebimport/)
 - Semantic Crawler: [LDSpider 1.1e](http://code.google.com/p/ldspider/) revision 304 checked out for extension to .gexf output using the [gexf4j 0.4.0](https://github.com/francesco-ficarola/gexf4j) library
 - Triplestore Instance: [4Store 1.1.3](http://4store.org/trac/wiki/Download)
 
-### Version 0.1:
+### trafficGraph version:
 - Graph Visualizer: [Gephi 0.8.1 beta 201202141941](http://gephi.org/) using plugin [HttpGraph 1.0.6](https://gephi.org/plugins/http-graph/)
 - Semantic Cawler: [LDSpider 1.1e](http://code.google.com/p/ldspider/)
 
@@ -18,7 +18,7 @@ Examples and visualizations of semantic web crawls using:
 
 There are many unanswered questions regarding the nature of semantic web crawling (see SemCrawl.md in docs directory), and this is my attempt to sharpen those questions with some visual depictions of different crawling strategies.
 
-*The initial motivation for this project was to produce [this video](http://www.youtube.com/watch?v=CCBvwWIba3c) and [this other video](http://www.youtube.com/watch?v=w9UKUpyqw_4).  There are now visualizations of the RDF graphs themselves as .gexf files in each of the folders in the ver0.2/example_crawls directory, see the readme in version 0.2 to learn how to use them.
+*The initial motivation for this project was to produce [this video](http://www.youtube.com/watch?v=CCBvwWIba3c) and [this other video](http://www.youtube.com/watch?v=w9UKUpyqw_4).  There are now visualizations of the RDF graphs themselves as .gexf files in each of the folders in the rdfGraph/example_crawls directory, see the readme in version 0.2 to learn how to use them.
 
 # License
 
